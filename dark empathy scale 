@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Empath Scale</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #444;
+        }
+        .scale-description {
+            margin-bottom: 20px;
+        }
+        .scale-item {
+            margin-bottom: 15px;
+        }
+        .scale-item label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .scale-item input[type="range"] {
+            width: 100%;
+        }
+        .result {
+            display: none;
+            margin-top: 20px;
+            text-align: center;
+            background: #e6f7ff;
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 1.2em;
+            color: #005f99;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background: #005f99;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #004d80;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Dark Empath Scale</h1>
+        <div class="scale-description">
+            <p>This scale is designed to measure the levels of dark empath traits in individuals. Dark empaths are characterized by a combination of high empathy and dark personality traits such as narcissism, Machiavellianism, and psychopathy.</p>
+        </div>
+        <form id="empath-scale">
+            <div class="scale-item">
+                <label for="empathy">Empathy</label>
+                <input type="range" id="empathy" name="empathy" min="0" max="100" value="50">
+            </div>
+            <div class="scale-item">
+                <label for="narcissism">Narcissism</label>
+                <input type="range" id="narcissism" name="narcissism" min="0" max="100" value="50">
+            </div>
+            <div class="scale-item">
+                <label for="machiavellianism">Machiavellianism</label>
+                <input type="range" id="machiavellianism" name="machiavellianism" min="0" max="100" value="50">
+            </div>
+            <div class="scale-item">
+                <label for="psychopathy">Psychopathy</label>
+                <input type="range" id="psychopathy" name="psychopathy" min="0" max="100" value="50">
+            </div>
+            <button type="button" class="btn" onclick="calculateScore()">Calculate Score</button>
+        </form>
+        <div class="result" id="result">
+            <h2>Your Dark Empath Score</h2>
+            <p id="score"></p>
+        </div>
+    </div>
+
+    <script>
+        function calculateScore() {
+            var empathy = parseInt(document.getElementById('empathy').value);
+            var narcissism = parseInt(document.getElementById('narcissism').value);
+            var machiavellianism = parseInt(document.getElementById('machiavellianism').value);
+            var psychopathy = parseInt(document.getElementById('psychopathy').value);
+
+            var darkEmpathScore = (empathy + narcissism + machiavellianism + psychopathy) / 4;
+            
+            document.getElementById('score').innerText = darkEmpathScore.toFixed(2);
+            document.getElementById('result').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
